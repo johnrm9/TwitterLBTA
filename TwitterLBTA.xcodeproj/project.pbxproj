@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DC006DF51FE86A8800B48DB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC006DF41FE86A8800B48DB0 /* AppDelegate.swift */; };
-		DC006DF71FE86A8800B48DB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC006DF61FE86A8800B48DB0 /* ViewController.swift */; };
-		DC006DFA1FE86A8800B48DB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC006DF81FE86A8800B48DB0 /* Main.storyboard */; };
+		DC006DF71FE86A8800B48DB0 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC006DF61FE86A8800B48DB0 /* HomeController.swift */; };
 		DC006DFC1FE86A8800B48DB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC006DFB1FE86A8800B48DB0 /* Assets.xcassets */; };
 		DC006DFF1FE86A8800B48DB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC006DFD1FE86A8800B48DB0 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -17,8 +16,7 @@
 /* Begin PBXFileReference section */
 		DC006DF11FE86A8800B48DB0 /* TwitterLBTA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterLBTA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC006DF41FE86A8800B48DB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DC006DF61FE86A8800B48DB0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DC006DF91FE86A8800B48DB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DC006DF61FE86A8800B48DB0 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		DC006DFB1FE86A8800B48DB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC006DFE1FE86A8800B48DB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC006E001FE86A8800B48DB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -39,6 +37,7 @@
 			isa = PBXGroup;
 			children = (
 				DC006DF31FE86A8800B48DB0 /* TwitterLBTA */,
+				DC006E061FE86C8400B48DB0 /* Supporting Files */,
 				DC006DF21FE86A8800B48DB0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,14 +53,20 @@
 		DC006DF31FE86A8800B48DB0 /* TwitterLBTA */ = {
 			isa = PBXGroup;
 			children = (
-				DC006DF41FE86A8800B48DB0 /* AppDelegate.swift */,
-				DC006DF61FE86A8800B48DB0 /* ViewController.swift */,
-				DC006DF81FE86A8800B48DB0 /* Main.storyboard */,
+				DC006DF61FE86A8800B48DB0 /* HomeController.swift */,
 				DC006DFB1FE86A8800B48DB0 /* Assets.xcassets */,
-				DC006DFD1FE86A8800B48DB0 /* LaunchScreen.storyboard */,
 				DC006E001FE86A8800B48DB0 /* Info.plist */,
 			);
 			path = TwitterLBTA;
+			sourceTree = "<group>";
+		};
+		DC006E061FE86C8400B48DB0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DC006DF41FE86A8800B48DB0 /* AppDelegate.swift */,
+				DC006DFD1FE86A8800B48DB0 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,7 +130,6 @@
 			files = (
 				DC006DFF1FE86A8800B48DB0 /* LaunchScreen.storyboard in Resources */,
 				DC006DFC1FE86A8800B48DB0 /* Assets.xcassets in Resources */,
-				DC006DFA1FE86A8800B48DB0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,7 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC006DF71FE86A8800B48DB0 /* ViewController.swift in Sources */,
+				DC006DF71FE86A8800B48DB0 /* HomeController.swift in Sources */,
 				DC006DF51FE86A8800B48DB0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,14 +148,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DC006DF81FE86A8800B48DB0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DC006DF91FE86A8800B48DB0 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DC006DFD1FE86A8800B48DB0 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

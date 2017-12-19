@@ -13,13 +13,17 @@ class HomeDataSourceController: DatasourceController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView?.backgroundColor = UIColor(r: 232, g: 236, b: 241)
+        collectionView?.backgroundColor = .twitterBackground
         
         setupNavigationBarItems()
         
         let homeDataSource = HomeDataSource()
         self.datasource = homeDataSource
         
+    }
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        collectionViewLayout.invalidateLayout()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -30,12 +34,8 @@ class HomeDataSourceController: DatasourceController {
         let height: CGFloat
         
         if let user = self.datasource?.item(indexPath) as? User {
-            let string = user.bioText
             let approximateWidth = view.frame.width - 12 - 50 - 12 - 2
-            let size = CGSize(width: approximateWidth, height: .infinity)
-            let options: NSStringDrawingOptions = [.usesLineFragmentOrigin, .usesFontLeading]
-            let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15)]
-            let estimatedRect = NSString(string: string).boundingRect(with: size, options: options, attributes: attributes, context: nil)
+            let estimatedRect = CGRect.estimatedBoundingRectWithString(user.bioText, approximateWidth: approximateWidth, attributes: [.font: UIFont.systemFont(ofSize: 15)])
             height = estimatedRect.height + 66
         } else {
             height = 200

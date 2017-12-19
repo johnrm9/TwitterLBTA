@@ -10,8 +10,6 @@ import LBTAComponents
 
 class HomeDataSource: Datasource {
     
-    let tweets = ["tweet1", "tweet2"]
-    
     let users: [User] = {
         let brianUser = User(name: "Brian Voong", username: "@buildthatapp", bioText: "iPhone, iPad, iOS Programming Community. Join us to learn Swift, Objective-C and build iOS apps!", profileImage: #imageLiteral(resourceName: "profile_image"))
         
@@ -23,6 +21,16 @@ class HomeDataSource: Datasource {
         
         return [brianUser, rayUser, scottUser, kindleCourseUser]
     }()
+    
+    let tweets: [Tweet] = {
+        let brianUser = User(name: "Brian Voong", username: "@buildthatapp", bioText: "iPhone, iPad, iOS Programming Community. Join us to learn Swift, Objective-C and build iOS apps!", profileImage: #imageLiteral(resourceName: "profile_image"))
+        let tweet = Tweet(user: brianUser, message: "Welcome to episode 9 of the Twitter Series, really hope you guys are enjoying the series so far. I really really need a long text block to render out so we're going to stop here.")
+        
+        let tweet2 = Tweet(user: brianUser, message: "This is the second tweet message for our sample project. Very very exciting message ...")
+        
+        return [tweet, tweet2]
+    }()
+
     
     override func headerClasses() -> [DatasourceCell.Type]? {
         return [UserHeader.self]
@@ -36,7 +44,7 @@ class HomeDataSource: Datasource {
     }
     
     override func item(_ indexPath: IndexPath) -> Any? {
-        return users[indexPath.item]
+        return indexPath.section == 0 ? users[indexPath.item] : tweets[indexPath.item]
     }
     
     override func numberOfItems(_ section: Int) -> Int {

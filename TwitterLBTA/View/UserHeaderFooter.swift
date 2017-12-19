@@ -8,8 +8,6 @@
 
 import LBTAComponents
 
-let twitterBlue = UIColor(r: 61, g: 167, b: 244)
-
 class UserHeader: DatasourceCell {
     
     let textLabel: UILabel = {
@@ -38,7 +36,7 @@ class UserFooter: DatasourceCell {
         let label = UILabel()
         label.text = "Show me more"
         label.font = UIFont.systemFont(ofSize: 15)
-        label.textColor = twitterBlue
+        label.textColor = .twitterBlue
         return label
     }()
     
@@ -47,8 +45,7 @@ class UserFooter: DatasourceCell {
         
         backgroundColor = .clear
         
-        let whiteBackgroundView = UIView()
-        whiteBackgroundView.backgroundColor = .white
+        let whiteBackgroundView = UIView.whiteView
         
         addSubviews(whiteBackgroundView, textLabel)
         

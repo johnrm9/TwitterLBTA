@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 extension HomeDataSourceController {
     
     func setupNavigationBarItems() {
@@ -24,8 +23,7 @@ extension HomeDataSourceController {
             navigationController?.navigationBar.shadowImage = UIImage()
             navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
             
-            let thin_navBarSeparator = UIView()
-            thin_navBarSeparator.backgroundColor = UIColor.veryLightGray
+            let thin_navBarSeparator = UIView.veryLightGrayView
             view.addSubview(thin_navBarSeparator)
             thin_navBarSeparator.anchor(view.topAnchor, left: view.leftAnchor, right: view.rightAnchor, heightConstant: 0.5)
         }

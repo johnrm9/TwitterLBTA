@@ -13,6 +13,7 @@
 		DC006DFC1FE86A8800B48DB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC006DFB1FE86A8800B48DB0 /* Assets.xcassets */; };
 		DC006DFF1FE86A8800B48DB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC006DFD1FE86A8800B48DB0 /* LaunchScreen.storyboard */; };
 		DC27052B1FE8F3CE00B9A3DE /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27052A1FE8F3CE00B9A3DE /* TweetCell.swift */; };
+		DC5F3B501FE978A100FFEAAD /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5F3B4F1FE978A100FFEAAD /* Tweet.swift */; };
 		DCD1304F1FE88AF500343F6D /* HomeDataSourceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD1304E1FE88AF500343F6D /* HomeDataSourceController.swift */; };
 		DCD130541FE8975D00343F6D /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD130531FE8975D00343F6D /* UserCell.swift */; };
 		DCD130561FE8980000343F6D /* HomeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD130551FE8980000343F6D /* HomeDataSource.swift */; };
@@ -33,6 +34,7 @@
 		DC006DFE1FE86A8800B48DB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC006E001FE86A8800B48DB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC27052A1FE8F3CE00B9A3DE /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
+		DC5F3B4F1FE978A100FFEAAD /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		DCD1304E1FE88AF500343F6D /* HomeDataSourceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataSourceController.swift; sourceTree = "<group>"; };
 		DCD130531FE8975D00343F6D /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		DCD130551FE8980000343F6D /* HomeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataSource.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			children = (
 				DCD130551FE8980000343F6D /* HomeDataSource.swift */,
 				DCD130591FE8AB6800343F6D /* User.swift */,
+				DC5F3B4F1FE978A100FFEAAD /* Tweet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				DC27052B1FE8F3CE00B9A3DE /* TweetCell.swift in Sources */,
 				DC006DF51FE86A8800B48DB0 /* AppDelegate.swift in Sources */,
 				DCD1305A1FE8AB6800343F6D /* User.swift in Sources */,
+				DC5F3B501FE978A100FFEAAD /* Tweet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

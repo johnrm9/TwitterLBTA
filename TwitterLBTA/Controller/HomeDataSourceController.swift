@@ -7,19 +7,40 @@
 //
 
 import LBTAComponents
+import TRON
 
 class HomeDataSourceController: DatasourceController {
     
+    let errorMessageLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Apologies something went wrong. Please try again later..."
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.textColor = .red
+        label.isHidden = true
+        return label
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.addSubview(errorMessageLabel)
+        errorMessageLabel.fillSuperview()
         
         collectionView?.backgroundColor = .twitterBackground
         
         setupNavigationBarItems()
         
-        let homeDataSource = HomeDataSource()
-        self.datasource = homeDataSource
-        
+        Service.sharedInstance.fetchHomeFeed { (homeDatasource, err) in
+            if let err = err {
+                if let apiError = err as? APIError<Service.JSONError>, let response = apiError.response {
+                    self.errorMessageLabel.text = "Apologies something went wrong. Please try again later..." + "\nReponse Status code was \(response.statusCode)"
+                }
+               self.errorMessageLabel.isHidden = false
+            } else {
+                self.datasource = homeDatasource
+            }
+        }
     }
     
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {

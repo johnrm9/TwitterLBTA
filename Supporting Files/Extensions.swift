@@ -8,6 +8,8 @@
 
 import UIKit
 
+extension Int { var spaces: String { return String(repeating: " ", count: self) } }
+
 extension Array {
     public init(count: Int, elementCreator: @autoclosure () -> Element) {
         self = (0 ..< count).map { _ in elementCreator() }
@@ -31,6 +33,9 @@ extension UIColor {
     static var twitterBackground: UIColor {
         return UIColor(r: 232, g: 236, b: 241)
     }
+    static var lightGrayText: UIColor {
+        return UIColor(r: 130, g: 130, b: 130)
+    }
 }
 extension UIView {
     static var whiteView: UIView {
@@ -46,13 +51,13 @@ extension UIView {
 }
 
 extension CGRect {
-    static var navBarIcon34x34: CGRect {
+    static var iconFrame34x34: CGRect {
         return CGRect(x: 0, y: 0, width: 34, height: 34)
     }
 }
 
 extension UIImage {
-    func customBarItemView(_ frame: CGRect = .navBarIcon34x34, contentMode: UIViewContentMode = .scaleAspectFit, imageRenderingMode: UIImageRenderingMode = .alwaysOriginal) -> UIView {
+    func customBarItemView(_ frame: CGRect = .iconFrame34x34, contentMode: UIViewContentMode = .scaleAspectFit, imageRenderingMode: UIImageRenderingMode = .alwaysOriginal) -> UIView {
         let view = UIImageView(image: self.withRenderingMode(imageRenderingMode))
         view.frame = frame
         view.contentMode = contentMode
@@ -61,7 +66,7 @@ extension UIImage {
 }
 
 extension UIImage {
-    func customBarButton(_ frame: CGRect = .navBarIcon34x34, imageRendingMode: UIImageRenderingMode = .alwaysOriginal) -> UIBarButtonItem {
+    func customBarButton(_ frame: CGRect = .iconFrame34x34, imageRendingMode: UIImageRenderingMode = .alwaysOriginal) -> UIBarButtonItem {
         let button = UIButton(type: .system)
         button.setImage(self.withRenderingMode(imageRendingMode), for: .normal)
         button.frame = frame

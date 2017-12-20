@@ -16,39 +16,34 @@ class UserCell: DatasourceCell {
             nameLabel.text = user.name
             usernameLabel.text = user.username
             bioTextView.text = user.bioText
-            profileImageView.image = user.profileImage
+            
+            profileImageView.loadImage(urlString: user.profileImageUrl)
         }
     }
     
-    let profileImageView: UIImageView = {
-        let imageView = UIImageView()
+    let profileImageView: CachedImageView = {
+        let imageView = CachedImageView()
         imageView.image = #imageLiteral(resourceName: "profile_image")
         imageView.layer.cornerRadius = 5
         imageView.layer.masksToBounds = true
         return imageView
     }()
     
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Brian Voong"
-        label.font = UIFont.boldSystemFont(ofSize: 16)
+    let nameLabel: LBTALabel = {
+        let label = LBTALabel(text: "Brian Voong", font: UIFont.boldSystemFont(ofSize: 16))
         return label
     }()
     
-    let usernameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "@buildthatapp"
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = UIColor(r: 130, g: 130, b: 130)
+    let usernameLabel: LBTALabel = {
+        let label = LBTALabel(text: "@buildthatapp", font: UIFont.systemFont(ofSize: 14))
+        label.textColor = UIColor.lightGrayText
         return label
     }()
     
-    let bioTextView: UITextView = {
-        let textView = UITextView()
+    let bioTextView: LBTATextView = {
+        let textView = LBTATextView()
         textView.text = "iPhone, iPad, iOS Programming Community. Join us to learn Swift, Objective-C and build iOS apps!"
         textView.font = UIFont.systemFont(ofSize: 15)
-        textView.backgroundColor = .clear
-        textView.isEditable = false
         return textView
     }()
     
@@ -56,7 +51,7 @@ class UserCell: DatasourceCell {
         let button = UIButton()
         button.layer.cornerRadius = 5
         button.layer.borderColor = UIColor.twitterBlue.cgColor
-        button.layer.borderWidth = 1
+        button.layer.borderWidth = 1 //UIScreen.main.nativeScale
         button.setTitle("Follow", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.setTitleColor(.twitterBlue, for: .normal)

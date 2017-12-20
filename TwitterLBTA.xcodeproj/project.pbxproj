@@ -149,8 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				DCD130531FE8975D00343F6D /* UserCell.swift */,
-				DCD1305B1FE8AD8500343F6D /* UserHeaderFooter.swift */,
 				DC27052A1FE8F3CE00B9A3DE /* TweetCell.swift */,
+				DCD1305B1FE8AD8500343F6D /* UserHeaderFooter.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

@@ -13,34 +13,31 @@ class TweetCell: DatasourceCell {
     override var datasourceItem: Any? {
         didSet {
             guard let tweet = datasourceItem as? Tweet else { return }
+            
+            profileImageView.loadImage(urlString: tweet.user.profileImageUrl)
+            
             let attributedText = NSMutableAttributedString(string: tweet.user.name, attributes: [.font: UIFont.boldSystemFont(ofSize: 16)])
             
-            let usernameString = "  \(tweet.user.username)\n"
-            attributedText.append(NSAttributedString(string: usernameString, attributes: [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: UIColor.gray]))
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineSpacing = 4
-            let range = NSMakeRange(0, attributedText.string.count)
-
-            attributedText.addAttribute(NSAttributedStringKey.paragraphStyle, value: paragraphStyle, range: range)
-            
+            attributedText.append(NSAttributedString(string: 2.spaces + tweet.user.username, attributes: [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: UIColor.gray]))
+            attributedText.appendNewLine()
+            attributedText.setLineSpacing(4)
             attributedText.append(NSAttributedString(string: tweet.message, attributes: [.font: UIFont.systemFont(ofSize: 15)]))
             
             messageTextView.attributedText = attributedText
         }
     }
     
-    let profileImageView: UIImageView = {
-        let imageView = UIImageView()
+    let profileImageView: CachedImageView = {
+        let imageView = CachedImageView()
         imageView.image = #imageLiteral(resourceName: "profile_image")
         imageView.layer.cornerRadius = 5
         imageView.clipsToBounds = true
         return imageView
     }()
     
-    let messageTextView: UITextView = {
-        let textView = UITextView()
+    let messageTextView: LBTATextView = {
+        let textView = LBTATextView()
         textView.text = "SOME SAMPLE TEXT"
-        textView.backgroundColor = .clear
         return textView
     }()
     

@@ -23,7 +23,7 @@ class HomeDataSourceController: DatasourceController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         view.addSubview(errorMessageLabel)
         errorMessageLabel.fillSuperview()
         
@@ -52,17 +52,20 @@ class HomeDataSourceController: DatasourceController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height: CGFloat
+        let width = view.frame.width
+        let approximateWidth: CGFloat = indexPath.section == 0 ? (width - 12 - 50 - 12 - 2) : indexPath.section == 1 ? (width - 12 - 50 - 12 - 2) : 0
         
-        if let user = self.datasource?.item(indexPath) as? User {
-            let approximateWidth = view.frame.width - 12 - 50 - 12 - 2
+        if indexPath.section == 0 {
+            guard let user = self.datasource?.item(indexPath) as? User else { return .zero }
             let estimatedRect = CGRect.estimatedBoundingRectWithString(user.bioText, approximateWidth: approximateWidth, attributes: [.font: UIFont.systemFont(ofSize: 15)])
-            height = estimatedRect.height + 66
-        } else {
-            height = 200
+            return CGSize(width: width, height: estimatedRect.height + 66)
+        } else if indexPath.section == 1 {
+            guard let tweet = self.datasource?.item(indexPath) as? Tweet else { return .zero }
+            let estimatedRect = CGRect.estimatedBoundingRectWithString(tweet.message, approximateWidth: approximateWidth, attributes: [.font: UIFont.systemFont(ofSize: 15)])
+            return CGSize(width: width, height: estimatedRect.height + 74)
         }
         
-        return CGSize(width: view.frame.width, height: height)
+        return CGSize(width: width, height: 200)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
